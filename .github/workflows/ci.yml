@@ -11,7 +11,17 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - run: sudo apt-get install libxkbcommon-x11-dev libxkbcommon-dev libwayland-dev
+      - uses: actions-rs/cargo@v1
+        with:
+          command: test
+
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
       - uses: actions-rs/cargo@v1
         with:
           command: test

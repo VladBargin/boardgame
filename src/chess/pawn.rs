@@ -1,5 +1,5 @@
-use cargo::chess::chess_piece::Pos;
-use cargo::chess::chess_piece::ChessPiece;
+use crate::chess::chess_piece::ChessPiece;
+use crate::chess::chess_piece::Pos;
 
 pub struct Pawn {
     pos: Pos
@@ -16,9 +16,9 @@ impl ChessPiece for Pawn {
     fn get_occupied(&self) -> Vec<Pos> {
         let mut occ: Vec<Pos> = Vec::new();
 
-        occ.push((self.p.0, self.p.1));
-        occ.push((self.p.0 + 1, self.p.1 + 1));
-        occ.push((self.p.0 - 1, self.p.1 + 1));
+        occ.push((self.pos.0, self.pos.1));
+        occ.push((self.pos.0 + 1, self.pos.1 + 1));
+        occ.push((self.pos.0 - 1, self.pos.1 + 1));
 
         return occ;
     }
