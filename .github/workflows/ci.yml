@@ -56,6 +56,6 @@ jobs:
         with:
           command: build
       - uses: actions/upload-artifact@v1
-          with:
-            name: boardgame-windows
-            path: target/debug/boardgame.exe
+        with:
+          name: boardgame-windows
+          path: target/debug/boardgame.exe
