@@ -1,12 +1,12 @@
-use crate::chess::chess_piece::ChessPiece;
 use crate::chess::chess_piece::Pos;
+use crate::chess::chess_piece::ChessPiece;
 use std::collections::HashSet;
 
-pub struct Pawn {
+pub struct King {
     pos: Pos
 }
 
-impl ChessPiece for Pawn {
+impl ChessPiece for King {
 
     fn new(p: Pos) -> Self {
         Self {
@@ -19,7 +19,13 @@ impl ChessPiece for Pawn {
 
         occ.insert((self.pos.0, self.pos.1));
         occ.insert((self.pos.0 + 1, self.pos.1 + 1));
+        occ.insert((self.pos.0 + 1, self.pos.1));
+        occ.insert((self.pos.0 + 1, self.pos.1 - 1));
+        occ.insert((self.pos.0, self.pos.1 - 1));
+        occ.insert((self.pos.0 - 1, self.pos.1 - 1));
+        occ.insert((self.pos.0 - 1, self.pos.1));
         occ.insert((self.pos.0 - 1, self.pos.1 + 1));
+        occ.insert((self.pos.0, self.pos.1 + 1));
 
         return occ;
     }
@@ -29,5 +35,6 @@ impl ChessPiece for Pawn {
 pub mod tests {
     #[test]
     fn test_go() {
+
     }
 }
