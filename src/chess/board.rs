@@ -108,9 +108,19 @@ impl Board {
     pub fn print_board(&self) {
         let mut x: Vec<Vec<&str>> = Vec::new();
         x.resize(8, vec![".", ".", ".", ".", ".", ".", ".", "."]);
+
         for p in self.pieces.iter() {
-            x[(p.get_pos()).0 as usize][(p.get_pos()).1 as usize] = "P";
+            match (*p).get_str().as_str() {
+                "p" => x[(p.get_pos()).0 as usize][(p.get_pos()).1 as usize] = "p",
+                "K" => x[(p.get_pos()).0 as usize][(p.get_pos()).1 as usize] = "K",
+                "k" => x[(p.get_pos()).0 as usize][(p.get_pos()).1 as usize] = "k",
+                "r" => x[(p.get_pos()).0 as usize][(p.get_pos()).1 as usize] = "r",
+                "b" => x[(p.get_pos()).0 as usize][(p.get_pos()).1 as usize] = "b",
+                "Q" => x[(p.get_pos()).0 as usize][(p.get_pos()).1 as usize] = "Q",
+                _ => ()
+            }
         }
+
         for i in 0..8 {
             println!("{:?}", x[i]);
         }
