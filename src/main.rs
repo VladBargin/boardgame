@@ -5,9 +5,12 @@ pub mod chess;
 
 // Все фигуры белые
 fn main() {
+
+    println!("Input n: ");
+
     let mut wanted: Vec<String> = Vec::new();
     let n = read!();
-    for i in 0..n {
+    for _i in 0..n {
         let s: String = read!();
         wanted.push(s);
     }

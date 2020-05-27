@@ -21,6 +21,12 @@ impl Board {
     }
 
     pub fn pos_used(&self, p: &Pos) -> bool {
+        for piece in self.pieces.iter() {
+            if (*piece).get_pos() == *p {
+                println!("Cell used");
+                return true;
+            }
+        }
         false
     }
 
@@ -82,7 +88,6 @@ impl Board {
         }
 
         for x in self.pieces.iter() {
-            println!("Str: {}", x.get_str());
             if mp.contains_key(x.get_str().as_str()) {
                 *mp.get_mut(x.get_str().as_str()).unwrap() -= 1;
             } else {
@@ -90,7 +95,7 @@ impl Board {
             }
         }
 
-        for (x, cnt) in &mp {
+        for (_x, cnt) in &mp {
             if *cnt != 0 {
                 return false;
             }
