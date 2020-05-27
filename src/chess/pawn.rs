@@ -7,7 +7,7 @@ pub struct Pawn {
 }
 
 impl Pawn {
-    fn new(p: Pos) -> Self {
+    pub fn new(p: Pos) -> Self {
         Self {
             pos: p
         }
@@ -24,6 +24,14 @@ impl ChessPiece for Pawn {
         occ.insert((self.pos.0 - 1, self.pos.1 + 1));
 
         return occ;
+    }
+
+    fn get_pos(&self) -> Pos {
+        self.pos
+    }
+
+    fn get_str(&self) -> String {
+        "p".to_string()
     }
 }
 

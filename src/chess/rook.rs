@@ -7,11 +7,12 @@ pub struct Rook {
 }
 
 impl Rook {
-    fn new(p: Pos) -> Self {
+    pub fn new(p: Pos) -> Self {
         Self {
             pos: p
         }
     }
+
 }
 
 impl ChessPiece for Rook {
@@ -28,6 +29,14 @@ impl ChessPiece for Rook {
         }
 
         return occ;
+    }
+
+    fn get_pos(&self) -> Pos {
+        self.pos
+    }
+
+    fn get_str(&self) -> String {
+        "r".to_string()
     }
 }
 

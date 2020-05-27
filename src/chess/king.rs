@@ -7,7 +7,7 @@ pub struct King {
 }
 
 impl King {
-    fn new(p: Pos) -> Self {
+    pub fn new(p: Pos) -> Self {
         Self {
             pos: p
         }
@@ -30,6 +30,14 @@ impl ChessPiece for King {
         occ.insert((self.pos.0, self.pos.1 + 1));
 
         return occ;
+    }
+
+    fn get_pos(&self) -> Pos {
+        self.pos
+    }
+
+    fn get_str(&self) -> String {
+        "K".to_string()
     }
 }
 

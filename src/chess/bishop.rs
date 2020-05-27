@@ -7,7 +7,7 @@ pub struct Bishop {
 }
 
 impl Bishop {
-    fn new(p: Pos) -> Self {
+    pub fn new(p: Pos) -> Self {
         Self {
             pos: p
         }
@@ -28,6 +28,14 @@ impl ChessPiece for Bishop {
         }
 
         return occ;
+    }
+
+    fn get_pos(&self) -> Pos {
+        self.pos
+    }
+
+    fn get_str(&self) -> String {
+        "b".to_string()
     }
 }
 

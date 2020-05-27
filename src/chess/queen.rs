@@ -7,7 +7,7 @@ pub struct Queen {
 }
 
 impl Queen {
-    fn new(p: Pos) -> Self {
+    pub fn new(p: Pos) -> Self {
         Self {
             pos: p
         }
@@ -30,6 +30,14 @@ impl ChessPiece for Queen {
         }
 
         return occ;
+    }
+
+    fn get_pos(&self) -> Pos {
+        self.pos
+    }
+
+    fn get_str(&self) -> String {
+        "Q".to_string()
     }
 }
 
