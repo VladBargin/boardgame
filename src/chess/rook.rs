@@ -6,23 +6,25 @@ pub struct Rook {
     pos: Pos
 }
 
-impl ChessPiece for Rook {
-
+impl Rook {
     fn new(p: Pos) -> Self {
         Self {
             pos: p
         }
     }
+}
+
+impl ChessPiece for Rook {
 
     fn get_occupied(&self) -> HashSet<Pos> {
         let mut occ: HashSet<Pos> = HashSet::new();
 
         for x in 0..8 {
-            occ.insert((x, self.pos.1))
+            occ.insert((x, self.pos.1));
         }
 
         for y in 0..8 {
-            occ.insert((self.pos.0, y))
+            occ.insert((self.pos.0, y));
         }
 
         return occ;

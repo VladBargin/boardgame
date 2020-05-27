@@ -6,13 +6,15 @@ pub struct King {
     pos: Pos
 }
 
-impl ChessPiece for King {
-
+impl King {
     fn new(p: Pos) -> Self {
         Self {
             pos: p
         }
     }
+}
+
+impl ChessPiece for King {
 
     fn get_occupied(&self) -> HashSet<Pos> {
         let mut occ: HashSet<Pos> = HashSet::new();
